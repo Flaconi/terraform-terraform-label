@@ -55,6 +55,11 @@ We literally have [*hundreds of terraform modules*][terraform_modules] that are 
 
 ## Usage
 
+
+**IMPORTANT:** The `master` branch is used in `source` just as an example. In your code, do not pin to `master` because there may be breaking changes between releases.
+Instead pin to the release tag (e.g. `?ref=tags/x.y.z`) of one of our [latest releases](https://github.com/cloudposse/terraform-terraform-label/releases).
+
+
 ### Simple Example
 
 Include this repository as a module in your existing terraform code:
@@ -174,19 +179,18 @@ Available targets:
   lint                                Lint terraform code
 
 ```
-
 ## Inputs
 
 | Name | Description | Type | Default | Required |
 |------|-------------|:----:|:-----:|:-----:|
-| attributes | Additional attributes, e.g. `1` | list | `<list>` | no |
+| attributes | Additional attributes, e.g. `1` | list(string) | `<list>` | no |
 | convert_case | Convert fields to lower case | string | `true` | no |
 | delimiter | Delimiter to be used between `namespace`, `name`, `stage` and `attributes` | string | `-` | no |
 | enabled | Set to false to prevent the module from creating any resources | string | `true` | no |
 | name | Solution name, e.g. `app` | string | - | yes |
 | namespace | Namespace, which could be your organization name, e.g. `cp` or `cloudposse` | string | - | yes |
 | stage | Stage, e.g. `prod`, `staging`, `dev`, or `test` | string | - | yes |
-| tags | Additional tags (e.g. `map(`BusinessUnit`,`XYZ`) | map | `<map>` | no |
+| tags | Additional tags (e.g. `map(`BusinessUnit`,`XYZ`) | map(string) | `<map>` | no |
 
 ## Outputs
 
@@ -279,7 +283,7 @@ In general, PRs are welcome. We follow the typical "fork-and-pull" Git workflow.
 
 ## Copyright
 
-Copyright © 2017-2018 [Cloud Posse, LLC](https://cpco.io/copyright)
+Copyright © 2017-2019 [Cloud Posse, LLC](https://cpco.io/copyright)
 
 
 
